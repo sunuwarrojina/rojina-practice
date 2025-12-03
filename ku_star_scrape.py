@@ -63,7 +63,7 @@ def clean_data():
     df.columns = header  # set proper column names
 
     # Keep only rows that have a real "No" value (start of each professor row)
-    df = df[df["No"].notna()]
+    df = df[df["No"].notna() & (df["No"] != "No")] 
 
     # Drop any rows where "Name" is missing, just to be safe
     df = df[df["Name"].notna()]
